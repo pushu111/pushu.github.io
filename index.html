@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title></title>
+  <link rel="stylesheet" href="source/jquery.mobile-1.4.5.min.css">
+  <script src="source/jquery-1.11.1.min.js"></script>
+  <script src="source/jquery.mobile-1.4.5.min.js"></script>
+  <style type="text/css">
+	  * {
+	      box-shadow: none !important;
+	      text-shadow: none !important;
+	      outline: none !important;
+	  }
+	  #page #header {
+	      height: 75px;
+	      background: #007f37;
+	      border: 0;
+	  }
+	  #page #header img {
+	      height: 75px;
+	      float: left;
+	  }
+	  #page #header h1 {
+	      font-size: 33px;
+	      padding: 0;
+	      color: #fff;
+	  	line-height: 75px;
+	      margin: 0;
+	      width: 200px;
+	  }
+	  #page #main img {
+	      width: 100%;
+	      border-top: 5px solid #012c14;
+	      border-bottom: 5px solid #012c14;
+	  }
+	  #page #foot {
+	  	text-align: center;
+	      font-family: '微软雅黑';
+	      font-size: 14px;
+	      font-weight: 400;
+	      border: 0;
+	      padding: 10px 0;
+	      background: #fff;
+	      margin: 0;
+	  }
+	  #page #content {
+	      position: relative;
+	      top:-5px;
+	  }
+	  #page #content div {
+	      font-size: 25px;
+	      position: relative;
+	  }
+	  #page #content div:active {
+	      background: #000 !important;
+	  }
+	  #page #content div a {
+	  	display: block;
+	      text-decoration: none;
+	      display: block;
+	  	color: #fff;
+	      width: 100%;
+	      height: 100%;
+	      padding: 50px 0;
+	      text-align: center;
+	  }
+	  #page2 #foot {
+	      font-family: '微软雅黑';
+	      text-align: center;
+	      font-size: 14px;
+	      font-weight: 400;
+	      border: 0;
+	      padding-bottom: 20px;
+	      background: #fefefe;
+	      margin: 0;
+	  }
+	  #page3 #foot {
+	      text-align: center;
+	      font-size: 14px;
+	      font-weight: 400;
+	      border: 0;
+	      background: #fff;
+	      padding: 10px 0;
+	      margin: 0;
+	      font-family: '微软雅黑';
+	      background: #fefefe;
+	  }
+	  #index #footer,#page2 #footer {
+	      background: rgb(255, 255, 255, 0.5);
+	  }
+	  #index #footer .ui-btn,#page2 #footer .ui-btn {
+	      background: none !important;
+	      color: #404040 !important;
+	      border-left: 1px #dadada solid !important;
+	      font-weight: 400 !important;
+	  }
+	  #page2 #header,#page3 #header {
+	      background: #008738;
+	      color: #fff;
+	      border-bottom: 3px solid #00210e;
+	  }
+	  #page2 #header .ui-btn,#page3 #header .ui-btn {
+	      background: none;
+	      border: 1px solid transparent;
+	  }
+	  #page2 #main img {
+	      width: 100%;
+	  }
+	  #page2 #main div div {
+	      position: relative;
+	  }
+	  #page2 .shu {
+	      position: absolute;
+	      left: 0;
+	      top: 0;
+	      margin: 0;
+	      width: 48px;
+	      line-height: 48px;
+	      background: #008000;
+	      color: #fff;
+	      text-align: center;
+	      font-weight: bold;
+	  }
+	  #page2 .title {
+	      line-height: 36px;
+	      margin: 0;
+	      padding: 0 5px;
+	      text-align: center;
+	      position: absolute;
+	      left: 0;
+	      bottom: 5px;
+	      background: rgb(0, 0, 0, 0.5);
+	      color: #fff;
+	      font-weight: bold;
+	  }
+	  #page2 .content:nth-child(1) {
+	      margin: 0;
+	  }
+	  #page2 .content {
+	      background: #fff;
+	      border: 1px solid #e0e0e0;
+	      margin-top: 20px;
+	  }
+	  #page2 .as {
+	      font-size: 14px;
+	      margin: 10px 8px;
+	  }
+	  #rnav {
+	      width: 100px;
+	      background: #f0f0f0;
+	  }
+	  #rnav a {
+	      display: block;
+	      height: 52px;
+	      line-height: 52px;
+	      text-align: center;
+	      color: #000;
+	      font-weight: 500;
+	      text-decoration: none;
+	      border-bottom: 1px solid #e0e0e0;
+	      position: relative;
+	  }
+	  #rnav a:after {
+	  	background: #009540;
+	      position: absolute;
+	      right: 0;
+	      top: 0;
+	      width: 5px;
+	      height: 100%;
+	      background: #009241;
+	      display: none;
+	  }
+	  #rnav a:hover {
+	     background: #fff;
+	  }
+	  #rnav a:hover:after {
+	     display: block;
+	  }
+	  .ui-panel-inner {
+	     padding: 0 !important;
+	  }
+	  .ui-panel-dismiss-open {
+	     right: 112px !important;
+	  }
+	  #page3 #main .ui-grid-c div {
+	     border-right: 1px solid #e7e7e7;
+	  }
+	  #page3 #main .ui-grid-c div:nth-child(4) {
+	     border-right: 0;
+	  }
+	  #page3 #main .ui-grid-c {
+	     border-bottom: 1px solid #e7e7e7;
+	  }
+	  #page3 #main .ui-grid-c a {
+	      font-size: 14px;
+	      font-weight: 400;
+	  	text-align: center;
+	  	display: block;
+	  	height: 34px;
+	      color: #000;
+	      line-height: 34px;
+	      position: relative;
+	  }
+	  #page3 #main .ui-grid-c div:nth-child(1) a:after{
+	      height: 5px;
+	  	position: absolute;
+	  	left: 0;
+	  	bottom: 0;
+	      width: 100%;
+	      background: #009a42;
+	  }
+	  .page3-title{
+	      height:18px;
+	      border-left: 3px solid #009a42;
+	      margin: 10px 7px;
+	      overflow: hidden;
+	      position: relative;
+	  }
+	  .page3-title .a {
+	      font-size: 14px;
+	      margin: 0;
+	      letter-spacing: 1px;
+	  	float: left;
+	  	line-height: 20px;
+	  	padding-left: 5px;
+	      background: #f9f9f9;
+	      position: relative;
+	      z-index: 2;
+	  }
+	  .page3-title .b {
+	      font-size: 18px;
+	      color: #000;
+	      font-weight: 100;
+	      transform: scale(0.6);
+	      display: block;
+	      float: left;
+	      margin-top: 1px;
+	      position: relative;
+	  	line-height: 20px;
+	  	background: #f9f9f9;
+	      padding-left: 5px;
+	      padding-right: 10px;
+	      z-index: 2;
+	  }
+	  #page3 #main .ui-grid-a img {
+	      width: 100%;
+	  }
+	  #page3 #main .page3-content .ui-block-a {
+	      box-sizing: border-box;
+	      border-left: 7px solid transparent;
+	      border-right: 3.5px solid transparent;
+	      border-bottom: 7px solid transparent;
+	  }
+	  #page3 #main .ui-grid-a div {
+	      position: relative;
+	  }
+	  #page3 #main .page3-content .ui-block-b {
+	      box-sizing: border-box;
+	      border-left: 3.5px solid transparent;
+	      border-right: 7px solid transparent;
+	      border-bottom: 7px solid transparent;
+	  }
+	  #page3 #main .ui-grid-a div p {
+	      margin: 2px;
+	      position: absolute;
+	      left: 0;
+	      bottom: 2px;
+	      line-height: 31px;
+	      font-size: 14px;
+	      background: rgb(0, 0, 0, 0.5);
+	      color: #fff;
+	      padding: 0 5px;
+	  }
+	  #page3 #footer .ui-btn {
+	      background: rgb(255, 255, 255, 0.5) !important;
+	      border-left: 1px #F0F0F0 solid !important;
+	      color: #2A2A2A !important;
+	      font-weight: 200 !important;
+	  }
+	  
+  </style>
+</head>
+<body>
+  <div data-role="page" id="page">
+    <div data-role="header" id="header">
+      <img src="images/logo.jpg" />
+      <h1>中国.松山湖</h1>
+    </div>
+    <div data-role="main" id="main">
+      <img src="images/banner.jpg" />
+      <div class="ui-grid-a" id="content">
+        <div class="ui-block-a" style="background:#e76800">
+          <a>园区<br/>功能</a>
+        </div>
+        <div class="ui-block-b" style="background:#e6c001">
+          <a>交通<br/>信息</a>
+        </div>
+        <div class="ui-block-a" style="background:#87b910">
+          <a href="#page2">旅游<br/>资源</a>
+        </div>
+        <div class="ui-block-b" style="background:#0e44a2">
+          <a href="#page3">教育<br/>资源</a>
+        </div>
+      </div>
+      <p id="foot">copyright&copy;东莞松山湖科技产业园<br/>制作者：赵汲</p>
+    </div>
+    <div data-role="footer" data-position="fixed" id="footer">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#" class="ui-btn ui-icon-phone ui-btn-icon-top">联系我们</a></li>
+          <li><a href="#" class="ui-btn ui-icon-location ui-btn-icon-top">网站地图</a></li>
+          <li><a href="#" class="ui-btn ui-icon-bars ui-btn-icon-top">招聘信息</a></li>
+          <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-top">收藏本站</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div data-role="page" id="page2">
+    <div data-role="panel" id="rnav" data-display="overlay" data-position="right">
+      <div>
+        <a href="#content1" data-ajax="false">松湖烟雨</a>
+        <a href="#content2" data-ajax="false">松湖花海</a>
+        <a href="#content3" data-ajax="false">状元笔公园</a>
+        <a href="#content4" data-ajax="false">月荷湖公园</a>
+        <a href="#content5" data-ajax="false">阳光沙滩</a>
+      </div>
+    </div>
+    <div data-role="header" id="header">
+      <a href="#" data-rel="back" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon"></a>
+      <h1>旅游资源</h1>
+      <a href="#rnav" class="ui-btn ui-icon-bars ui-btn-icon-notext ui-nodisc-icon"></a>
+    </div>
+    <div data-role="main" class="ui-content" id="main">
+      <div class="content" id="content1">
+        <div>
+          <p class="shu">1</p>
+          <img src="images/shyy.jpg" />
+          <p class="title">松湖烟雨</p>
+        </div>
+        <p class="as">松湖烟雨位于园区南部，该片区以8平方公里的淡水湖为核心，主要是丘陵植被和生态湿地。</p>
+      </div>
+      <div class="content" id="content2">
+        <div>
+          <p class="shu">2</p>
+          <img src="images/shhh.jpg" />
+          <p class="title">松湖花海</p>
+        </div>
+       <p class="as">松湖花海是松山湖南岸的一条蜿蜒起伏的花带，全长约9000米，绿化面积近100万平方米。</p>
+      </div>
+      <div class="content" id="content3">
+        <div>
+          <p class="shu">3</p>
+          <img src="images/zybgy.jpg"/>
+          <p class="title">状元笔公园</p>
+        </div>
+        <p class="as">状元笔公园是东莞松山湖产业园区内的一个公园，处于道路中间，是新建造的历史文化公园。</p>
+      </div>
+      <div class="content" id="content4">
+        <div>
+          <p class="shu">4</p>
+          <img src="images/yhhgy.jpg" />
+          <p class="title">月荷湖公园</p>
+        </div>
+        <p class="as">月荷湖公园位于松山湖北部工业城生态核心区，因形似半弯明月，湖中种植大面积名贵荷花而得名。</p>
+      </div>
+      <div class="content" id="content5">
+        <div>
+          <p class="shu">5</p>
+          <img src="images/ygst.jpg" />
+          <p class="img-title">阳光沙滩</p>
+        </div>
+        <p class="as">阳光沙滩是位于松山湖内的一处人造沙滩，还配有休闲区，游客在这里的石凳上歇息，享受阳光沙滩的悠闲自在。</p>
+      </div>
+    </div>
+<p id="foot">copyright&copy;东莞松山湖科技产业园<br/>制作者：赵汲</p>
+    <div data-role="footer" data-position="fixed" id="footer">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#" class="ui-btn ui-icon-phone ui-btn-icon-top">联系我们</a></li>
+          <li><a href="#" class="ui-btn ui-icon-location ui-btn-icon-top">网站地图</a></li>
+          <li><a href="#" class="ui-btn ui-icon-bars ui-btn-icon-top">招聘信息</a></li>
+          <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-top">收藏本站</a></li>
+        </ul>
+      </div>
+</div>
+  </div>
+  <div data-role="page" id="page3">
+    <div data-role="header" id="header">
+      <a href="#" data-rel="back" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-nodisc-icon"></a>
+      <h1>教育资源</h1>
+    </div>
+<div data-role="main" id="main">
+      <div class="ui-grid-c">
+        <div class="ui-block-a">
+          <a>推荐</a>
+        </div>
+        <div class="ui-block-b">
+          <a>大学</a>
+        </div>
+        <div class="ui-block-c">
+          <a>中小学</a>
+        </div>
+        <div class="ui-block-c">
+          <a>幼儿园</a>
+        </div>
+      </div>
+   <div class="page3-title">
+        <p class="a">东莞理工学院</p>
+        <p class="b" style="margin-left:-10px;">，学而知不足</p>
+    </div>
+      <div class="ui-grid-a page3-content">
+        <div class="ui-block-a">
+          <img src="images/dglg1.jpg" />
+          <p>学校正门</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/dglg2.jpg" />
+          <p>第一食堂</p>
+        </div>
+        <div class="ui-block-a">
+          <img src="images/dglg3.jpg" />
+          <p>游泳池</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/dglg4.jpg" />
+          <p>体育场</p>
+        </div>
+      </div>
+      <div class="page3-title">
+        <p class="a">东莞职业技术学院</p>
+        <p class="b" style="margin-left:-15px;">，崇德笃行精技术创新</p>
+      </div>
+      <div class="ui-grid-a page3-content">
+        <div class="ui-block-a">
+          <img src="images/dgpt1.jpg" />
+          <p>学校正门</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/dgpt2.jpg" />
+          <p>教学楼</p>
+        </div>
+        <div class="ui-block-a">
+          <img src="images/dgpt3.jpg" />
+          <p>图书馆</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/dgpt4.jpg" />
+          <p>网球场</p>
+        </div>
+      </div>
+      <div class="page3-title">
+        <p class="a">东莞松山湖学校</p>
+        <p class="b" style="margin-left:-15px;">，为学以真立身以诚</p>
+      </div>
+      <div class="ui-grid-a page3-content">
+        <div class="ui-block-a">
+          <img src="images/shhxx1.jpg" />
+          <p>教学楼</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/shhxx2.jpg" />
+          <p>生物园</p>
+        </div>
+        <div class="ui-block-a">
+          <img src="images/shhxx3.jpg" />
+          <p>全景图</p>
+        </div>
+        <div class="ui-block-b">
+          <img src="images/shhxx4.jpg" />
+          <p>体育场</p>
+        </div>
+      </div>
+    </div>
+ <p id="foot">copyright&copy;东莞松山湖科技产业园<br />制作者：赵汲</p>
+    <div data-role="footer" data-position="fixed" id="footer">
+      <div data-role="navbar">
+        <ul>
+          <li><a href="#" class="ui-btn ui-icon-phone ui-btn-icon-top">联系我们</a></li>
+          <li><a href="#" class="ui-btn ui-icon-location ui-btn-icon-top">网站地图</a></li>
+          <li><a href="#" class="ui-btn ui-icon-bars ui-btn-icon-top">招聘信息</a></li>
+          <li><a href="#" class="ui-btn ui-icon-gear ui-btn-icon-top">收藏本站</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
